@@ -1,17 +1,17 @@
 #web_bg {
     background-image: url("../img/banner.jpg"),
-        linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35))
+        linear-gradient(60deg, rgba(240, 221, 217, 0.5) 5%, rgba(0, 228, 255, 0.35))
 }
 #post_bg {
     background-image: url("../img/banner.jpg"),
-        linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35))
+        linear-gradient(60deg, rgba(224, 216, 214, 0.5) 5%, rgba(0, 228, 255, 0.35))
 }
 /* 侧边栏个人信息卡片动态渐变色 */
 #aside-content>.card-widget.card-info{
     background: linear-gradient(-45deg, rgba(225,235,255,.6), 
-rgba(199, 37, 16, 0.9), 
-rgba(196, 9, 9, 0.9), 
-rgba(173, 12, 12, 0.6));
+rgba(182, 171, 169, 0.9), 
+rgba(158, 140, 140, 0.9), 
+rgba(197, 180, 180, 0.6));
 }
 [data-theme=dark] #aside-content>.card-widget.card-info {
     background: linear-gradient(-45deg, rgba(24,40,72,.2), 
@@ -22,9 +22,9 @@ rgba(24,40,72,.2));
 /* 侧边栏公告栏卡片渐变色 */
 #aside-content>.card-widget.card-announcement{
     background: linear-gradient(-45deg, rgba(225,235,255,.6), 
-rgba(201, 16, 16, 0.9), 
-rgba(235, 8, 8, 0.9), 
-rgba(185, 16, 16, 0.774));
+rgba(199, 183, 183, 0.9), 
+rgba(170, 159, 159, 0.9), 
+rgba(185, 173, 173, 0.774));
 }
 [data-theme=dark] #aside-content>.card-widget.card-announcement{
     background: linear-gradient(-45deg, rgba(24,40,72,.2), 
