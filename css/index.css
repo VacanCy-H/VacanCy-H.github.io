@@ -1400,6 +1400,16 @@ body {
 input::placeholder {
   color: var(--font-color);
 }
+#web_bg {
+  position: fixed;
+  z-index: -999;
+  width: 100%;
+  height: 100%;
+  background-attachment: local;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 h1,
 h2,
 h3,
@@ -6302,3 +6312,82 @@ blockquote.pullquote.right {
   display: none;
   background: rgba(0,0,0,0.6);
 }
+/* 首页文章卡片 */
+#recent-posts > .recent-post-item{
+    background:rgba(200, 109, 109, 0.2);
+}
+/* 首页侧栏卡片 */
+.card-widget{
+  background:rgba(214, 144, 144, 0.6)!important;
+}
+/* 文章页面正文背景 */
+div#post{
+  background: rgba(255, 255, 255, 0.6);
+}
+/* 分页页面 */
+div#page{
+  background: rgba(255, 255, 255, 0.6);
+}
+/* 归档页面 */
+div#archive{
+  background: rgba(186, 121, 121, 0.6);
+}
+/* 标签页面 */
+div#tag{
+  background: rgba(184, 122, 122, 0.6);
+}
+/* 分类页面 */
+div#category{
+  background: rgba(167, 112, 112, 0.6);
+}
+/* 黑夜模式下*/
+[data-theme='dark'] #recent-posts > .recent-post-item{
+    background:rgba(0, 0, 0, 0.6)!important;
+}
+[data-theme='dark'] .card-widget{
+  background:rgba(0, 0, 0, 0.6)!important;
+}
+[data-theme='dark'] div#post{
+  background:rgba(0, 0, 0, 0.6)!important;
+}
+[data-theme='dark'] div#page{
+  background:rgba(0, 0, 0, 0.6)!important;
+}
+[data-theme='dark'] div#archive{
+  background:rgba(0, 0, 0, 0.6)!important;
+}
+[data-theme='dark'] div#tag{
+  background:rgba(0, 0, 0, 0.6)!important;
+}
+[data-theme='dark'] div#category{
+  background:rgba(0, 0, 0, 0.6)!important;
+}
+/* 文章页背景 */
+.layout_post>#post {
+    /* 以下代表透明度为0.7 可以自行修改*/
+    background: rgba(255, 255, 255, .7);
+}
+
+/* 所有页面背景 */
+#aside_content .card-widget,
+#recent-posts>.recent-post-item,
+.layout_page>div:first-child:not(.recent-posts),
+.layout_post>#page,
+.layout_post>#post,
+.read-mode .layout_post>#post {
+    /* 以下代表透明度为0.9 */
+    background: rgba(255, 255, 255, .6);
+}
+
+/*侧边卡片的透明度 */
+:root {
+    --card-bg: rgba(255, 255, 255, .6);
+}
+
+/* 页脚透明 */
+#footer {
+    /* 以下代表透明度为0.1*/
+    background: rgba(255, 255, 255, .1);
+}
+
+@import 'https://cdn.jsdelivr.net/gh/username/repo/css/xxx.css';
