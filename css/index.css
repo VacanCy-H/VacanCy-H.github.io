@@ -6529,4 +6529,161 @@ blockquote.pullquote.right {
   color: #f47466;
   font-weight: 600;
 }
+/* 页脚与头图透明 */
+#footer {
+    background: transparent !important;
+  }
+  #page-header {
+    background: transparent !important;
+  }
+  
+  /* 白天模式遮罩透明 */
+  #footer::before {
+    background: transparent !important;
+  }
+  #page-header::before {
+    background: transparent !important;
+  }
+  
+  /* 夜间模式遮罩透明 */
+  [data-theme="dark"] #footer::before {
+    background: transparent !important;
+  }
+  [data-theme="dark"] #page-header::before {
+    background: transparent !important;
+  }
+  
+  @media screen and (max-width: 768px) {
+    #page-header {
+    height: 100vh !important;  /* 移动端全屏高度 */
+    }
+  }
+  
+  /* 夜间模式菜单栏发光字 */
+  [data-theme="dark"] #nav .site-page,
+  [data-theme="dark"] #nav .menus_items .menus_item .menus_item_child li a {
+    text-shadow: 0 0 2px var(--theme-color) !important;
+  }
+  
+  /* 手机端适配 */
+  [data-theme="dark"] #sidebar #sidebar-menus .menus_items .site-page {
+    text-shadow: 0 0 2px var(--theme-color) !important;
+  }
+  
+  /* 闪烁变动颜色连续渐变 */
+  #site-name,
+  #site-title,
+  #site-subtitle,
+  #post-info,
+  .author-info__name,
+  .author-info__description {
+    transition: text-shadow 1s linear !important;
+  }
+  
+  /* 背景宇宙星光  */
+  #universe{
+    display: block;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* 这个是调置顶的优先级的，-1在文章页下面，背景上面，个人推荐这种 */
+    z-index: -1;
+  }
+  
+  /* 侧边栏个人信息卡片动态渐变色 */
+  #aside-content > .card-widget.card-info {
+    background: linear-gradient(
+      -45deg,
+      #b8679d,
+      #eccec5,
+      #a3e9eb,
+      #bdbdf0,
+      #eec1ea
+    );
+    box-shadow: 0 0 5px rgb(66, 68, 68);
+    position: relative;
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 10s ease infinite;
+    -moz-animation: Gradient 10s ease infinite;
+    animation: Gradient 10s ease infinite !important;
+  }
+  @-webkit-keyframes Gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  @-moz-keyframes Gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  @keyframes Gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* 黑夜模式适配 */
+  [data-theme="dark"] #aside-content > .card-widget.card-info {
+    background: #191919ee;
+  }
+  
+  /* 个人信息Follow me按钮 */
+  #aside-content > .card-widget.card-info > #card-info-btn {
+    background-color: #3eb8be;
+    border-radius: 8px;
+  }
+  
+  body {
+    background-size: cover;  /* 确保图片覆盖整个区域 */
+    min-height: 100vh;       /* 最小高度为视口高度 */
+  }
+  
+  /* 头部背景高度 */
+  #header {
+    height: 200px;          /* 固定高度 */
+    background-size: cover; /* 图片自适应容器 */
+  }
+  
+  /* 文章容器背景 */
+  .post-content {
+    background-size: contain; /* 图片完整显示在容器内 */
+    min-height: 500px;
+  }
+  
+  /* 调整侧边栏卡片的背景颜色和透明度 */
+  .card-widget {
+    background-color: rgba(255, 255, 255, 0.8) !important; /* 白色，80% 不透明度 */
+    backdrop-filter: blur(10px); /* 可选：添加毛玻璃效果 */
+  }
+  
+  /* 夜间模式下的侧边栏 */
+  [data-theme="dark"] .card-widget {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+  }
 @import 'https://vacancy-h.github.io/CSS/custom.css';
