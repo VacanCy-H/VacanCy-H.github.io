@@ -6692,27 +6692,27 @@ blockquote.pullquote.right {
 }
 /* 首页侧栏卡片 */
 .card-widget{
-  background:rgba(247, 229, 229, 0.6)!important;
+  background:rgba(248, 242, 242, 0.767)!important;
 }
 /* 文章页面正文背景 */
 div#post{
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.74);
 }
 /* 分页页面 */
 div#page{
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.747);
 }
 /* 归档页面 */
 div#archive{
-  background: rgba(236, 221, 221, 0.6);
+  background: rgba(243, 237, 237, 0.712);
 }
 /* 标签页面 */
 div#tag{
-  background: rgba(243, 230, 230, 0.6);
+  background: rgba(228, 221, 221, 0.671);
 }
 /* 分类页面 */
 div#category{
-  background: rgba(248, 235, 235, 0.6);
+  background: rgba(248, 235, 235, 0.712);
 }
 /* 黑夜模式下*/
 [data-theme='dark'] #recent-posts > .recent-post-item{
@@ -6739,7 +6739,7 @@ div#category{
 /* 文章页背景 */
 .layout_post>#post {
     /* 以下代表透明度为0.7 可以自行修改*/
-    background: rgba(243, 239, 239, 0.7);
+    background: rgba(245, 242, 242, 0.8);
 }
 
 /* 所有页面背景 */
