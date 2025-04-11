@@ -6750,12 +6750,12 @@ div#category{
 .layout_post>#post,
 .read-mode .layout_post>#post {
     /* 以下代表透明度为0.9 */
-    background: rgba(255, 255, 255, .8);
+    background: rgba(255, 255, 255, .7);
 }
 
 /*侧边卡片的透明度 */
 :root {
-    --card-bg: rgba(255, 255, 255, .8);
+    --card-bg: rgba(255, 255, 255, .7);
 }
 
 /* 页脚透明 */
