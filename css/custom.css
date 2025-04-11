@@ -70,7 +70,7 @@
 #aside-content > .card-widget.card-info {
   background: linear-gradient(
     -45deg,
-    #e8d8b9,
+    #b8679d,
     #eccec5,
     #a3e9eb,
     #bdbdf0,
@@ -143,4 +143,15 @@ body {
 .post-content {
   background-size: contain; /* 图片完整显示在容器内 */
   min-height: 500px;
+}
+
+/* 调整侧边栏卡片的背景颜色和透明度 */
+.card-widget {
+  background-color: rgba(255, 255, 255, 0.8) !important; /* 白色，80% 不透明度 */
+  backdrop-filter: blur(10px); /* 可选：添加毛玻璃效果 */
+}
+
+/* 夜间模式下的侧边栏 */
+[data-theme="dark"] .card-widget {
+  background-color: rgba(0, 0, 0, 0.6) !important;
 }
