@@ -4,6 +4,99 @@
   
     
     <entry>
+      <title>计算机的分页机制</title>
+      <link href="/2025/04/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%88%86%E9%A1%B5%E6%9C%BA%E5%88%B6/"/>
+      <url>/2025/04/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%88%86%E9%A1%B5%E6%9C%BA%E5%88%B6/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+          <category> 操作系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机 </tag>
+            
+            <tag> 操作系统 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>图</title>
+      <link href="/2025/04/15/%E5%9B%BE/"/>
+      <url>/2025/04/15/%E5%9B%BE/</url>
+      
+        <content type="html"><![CDATA[<h1><center> <em><strong>图</strong></em> </center></h1><h2 id="一、概念">一、概念</h2><h2 id="二、建图">二、建图</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+          <category> 图 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机 </tag>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 图 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>归并排序和归并分治</title>
+      <link href="/2025/04/15/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E5%92%8C%E5%BD%92%E5%B9%B6%E5%88%86%E6%B2%BB/"/>
+      <url>/2025/04/15/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%E5%92%8C%E5%BD%92%E5%B9%B6%E5%88%86%E6%B2%BB/</url>
+      
+        <content type="html"><![CDATA[<h1><center>  <em><strong>归并排序和归并分治</strong></em> </center></h1><h2 id="一、归并排序">一、归并排序</h2><h2 id="二、归并分治">二、归并分治</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+          <category> 归并排序&amp;归并分治 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机 </tag>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 归并排序 </tag>
+            
+            <tag> 归并分治 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux操作系统</title>
       <link href="/2025/04/11/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
       <url>/2025/04/11/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</url>
@@ -38,8 +131,8 @@
     
     <entry>
       <title>RSA加密算法</title>
-      <link href="/2025/04/11/%E5%AF%86%E7%A0%81%E5%AD%A6RSA-md/"/>
-      <url>/2025/04/11/%E5%AF%86%E7%A0%81%E5%AD%A6RSA-md/</url>
+      <link href="/2025/04/11/%E5%AF%86%E7%A0%81%E5%AD%A6RSA/"/>
+      <url>/2025/04/11/%E5%AF%86%E7%A0%81%E5%AD%A6RSA/</url>
       
         <content type="html"><![CDATA[<h1><center> RSA加密算法 </center></h1><h2 id="一、RSA加密解密过程">一、RSA加密解密过程</h2><ol><li><strong>加密过程</strong><br>RSA的加密思路基于大质数分解，</li></ol>]]></content>
       
@@ -64,40 +157,11 @@
     
     
     <entry>
-      <title>归并排序</title>
-      <link href="/2025/04/11/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F-md/"/>
-      <url>/2025/04/11/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F-md/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> 算法 </category>
-          
-          <category> 归并排序 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 计算机 </tag>
-            
-            <tag> 算法 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>汇编</title>
       <link href="/2025/04/11/%E6%B1%87%E7%BC%96-md/"/>
       <url>/2025/04/11/%E6%B1%87%E7%BC%96-md/</url>
       
-        <content type="html"><![CDATA[<h1><center> 汇编学习 </center></h1>]]></content>
+        <content type="html"><![CDATA[<h1><center> <em><strong>汇编学习</strong></em> </center></h1><blockquote><p><em><strong>声明：我所研究的汇编是win32位的MASM汇编，并不是传统的8086汇编！</strong></em></p></blockquote><h2 id="一、汇编的基本语法知识">一、汇编的基本语法知识</h2><ol><li><strong>模式定义</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.386</span><br><span class="line">.model flat, stdcall</span><br><span class="line">option casemap:none</span><br></pre></td></tr></table></figure>这些指令定义了程序使用的指令集、工作模式和格式，接下来我们来逐个介绍每一个语句是什么含义：<ul><li><p><code>.386</code><br>（伪指令）告诉编译器在本程序中使用的指令集。<br>（若是要写驱动程序，定义<code>.386p</code>指在特权指令0级上运行）</p></li><li><p><code>.model flat, stdcall</code><br><strong>.model</strong>在低版本宏汇编中已经存在，用来定义程序工作模式<br>基本格式：<code>.model 内存模式, [语言模式][其他模式]</code><br>内存模式定义能够影响最后生成的可执行文件：</p><table><thead><tr><th style="text-align:center">内存模式</th><th style="text-align:center">各种模式的介绍</th></tr></thead><tbody><tr><td style="text-align:center"><strong>tiny</strong></td><td style="text-align:center">建立 <strong>.com</strong>文件，所有 <strong>.code</strong>, <strong>.data</strong>, <strong>.stack</strong>全部在64KB的段内</td></tr><tr><td style="text-align:center"><strong>small</strong></td><td style="text-align:center">建立 <strong>.code</strong>, <strong>.data</strong>分别用一个64KB的段的 <strong>.exe</strong>文件</td></tr><tr><td style="text-align:center"><strong>medium</strong></td><td style="text-align:center"><strong>.code</strong>能有很多个64KB段，<strong>.data</strong>只有一个</td></tr><tr><td style="text-align:center"><strong>compact</strong></td><td style="text-align:center"><strong>.data</strong>能有很多个64KB段，<strong>.code</strong>只有一个</td></tr><tr><td style="text-align:center"><strong>large</strong></td><td style="text-align:center"><strong>.code</strong>和 <strong>.data</strong>都能有很多个64KB段</td></tr><tr><td style="text-align:center"><strong>huge</strong></td><td style="text-align:center">和large相同，<strong>.data</strong>中一个数组可以超过64KB</td></tr><tr><td style="text-align:center"><strong>flat</strong></td><td style="text-align:center"><strong>win32</strong>使用的模式，<strong>.code</strong>，<strong>.data</strong>共同使用一个4GB的段</td></tr></tbody></table><blockquote><p><strong>win32</strong>只有<strong>flat</strong>模式！</p></blockquote><p><strong>.model flat</strong>，还需要指定语言模式，例子使用的是 <strong>stdcall</strong>，它指出了调用子程序或 <strong>win32 API</strong>时参数传递的次序和堆栈平衡的方法。</p><p>除了 <strong>stdcall</strong> 以外还有 <strong>C, SysCall, BASIC, FORTRAIN, PASCALL</strong><br>高级语言都是通过堆栈来传递参数， <strong>win32 API</strong>调用使用的是 <strong>stdcall</strong>参数</p><ol><li><code>_stdcall调用</code><br><strong>_stdcall</strong>时Pascal程序的缺省调用方式，参数采取从右至左的压栈方式，被调用的函数自身在返回前清空堆栈。 <strong>win32 API</strong>采取 <strong>_stdcall</strong>调用方式<br><code>example:</code><br><br><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo separator="true">,</mo><mi>z</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(x, y, z)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span>第一个入栈，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>其次，最后是<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>。 函数返回时自己清空堆栈。</li><li><code>_cdecl调用</code><br>是 <strong>C/C++</strong> 的缺省调用方式，参数从右往左压入栈，内存栈由调用者维护，函数返回时不会自己清空堆栈，只能被 <strong>C/C++</strong> 调用</li></ol></li><li><p><code>option casemap:none</code><br><strong>option:none</strong>是告诉编译器，程序变量名和子程序变量名对大小敏感。</p></li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">.386</span><br><span class="line">.model flat, stdcall</span><br><span class="line">option casemap:none</span><br><span class="line">&lt;一些include语句&gt;</span><br><span class="line">.data</span><br><span class="line">&lt;一些全局变量&gt;</span><br><span class="line">.data?</span><br><span class="line">&lt;一些未初始化的变量&gt;</span><br><span class="line">.code</span><br><span class="line">&lt;代码&gt;</span><br><span class="line">start:</span><br><span class="line">  call main</span><br><span class="line">  push 0</span><br><span class="line">  call crt_exit</span><br><span class="line">  add esp, 4 </span><br><span class="line">end start</span><br></pre></td></tr></table></figure></li><li><strong>invoke指令</strong><br><strong>invoke</strong> 是伪指令<br><code>invoke 函数名 [参数1][参数2][参数3]...</code><br><em><strong>eg:</strong></em> <code>invoke MessageBox, NULL, offset szText, offset szCaption, MB_OK</code><br>编译器会把伪指令展开成一些 <strong>push, call</strong>指令 <strong>API</strong>函数有返回值，永远存放在eax中，类型只有 <strong>dword</strong>一种</li></ol>]]></content>
       
       
       <categories>
@@ -123,10 +187,10 @@
     
     <entry>
       <title>动态规划</title>
-      <link href="/2025/04/10/%E7%AE%97%E6%B3%95-md/"/>
-      <url>/2025/04/10/%E7%AE%97%E6%B3%95-md/</url>
+      <link href="/2025/04/10/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+      <url>/2025/04/10/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
       
-        <content type="html"><![CDATA[<h1><center> 动态规划 </center></h1><h2 id="一、一维的动态规划">一、一维的动态规划</h2><ol><li><strong>动态规划的前置思想——递归</strong><br>动态规划，从本质上来讲就是有记忆化的寻找，动态的规划接下来的步骤和操作。<br>我们知道一般的二叉树的DFS的时间复杂度是O(n)</li></ol>]]></content>
+        <content type="html"><![CDATA[<h1><center> <em><strong>动态规划</strong></em> </center></h1><h2 id="一、一维的动态规划">一、一维的动态规划</h2><ol><li><strong>动态规划的前置思想——递归</strong><br>动态规划，从本质上来讲就是有记忆化的寻找，动态的规划接下来的步骤和操作。<br>我们知道一般的二叉树的DFS的时间复杂度是O(n)</li></ol>]]></content>
       
       
       <categories>
