@@ -1,0 +1,485 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>汇编 | Steins;Gate</title><meta name="author" content="Kurisu"><meta name="copyright" content="Kurisu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="汇编学习   声明：我所研究的汇编是win32位的MASM汇编，并不是传统的8086汇编！  一、汇编的基本语法知识   模式定义 123.386.model flat, stdcalloption casemap:none 这些指令定义了程序使用的指令集、工作模式和格式，接下来我们来逐个介绍每一个语句是什么含义：   .386 （伪指令）告诉编译器在本程序中使用的指令集。 （若是要写驱动程序，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇编">
+<meta property="og:url" content="https://vacancy-h.github.io.git/2025/04/11/Tool-2025-04-11-%E6%B1%87%E7%BC%96-md/index.html">
+<meta property="og:site_name" content="Steins;Gate">
+<meta property="og:description" content="汇编学习   声明：我所研究的汇编是win32位的MASM汇编，并不是传统的8086汇编！  一、汇编的基本语法知识   模式定义 123.386.model flat, stdcalloption casemap:none 这些指令定义了程序使用的指令集、工作模式和格式，接下来我们来逐个介绍每一个语句是什么含义：   .386 （伪指令）告诉编译器在本程序中使用的指令集。 （若是要写驱动程序，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://vacancy-h.github.io.git/image/screenshot01.jpg">
+<meta property="article:published_time" content="2025-04-11T02:54:37.000Z">
+<meta property="article:modified_time" content="2025-04-20T13:01:51.341Z">
+<meta property="article:author" content="Kurisu">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="汇编">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://vacancy-h.github.io.git/image/screenshot01.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "汇编",
+  "url": "https://vacancy-h.github.io.git/2025/04/11/Tool-2025-04-11-%E6%B1%87%E7%BC%96-md/",
+  "image": "https://vacancy-h.github.io.git/image/screenshot01.jpg",
+  "datePublished": "2025-04-11T02:54:37.000Z",
+  "dateModified": "2025-04-20T13:01:51.341Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Kurisu",
+      "url": "https://vacancy-h.github.io.git/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://vacancy-h.github.io.git/2025/04/11/Tool-2025-04-11-%E6%B1%87%E7%BC%96-md/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const hour = new Date().getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (theme === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else theme === 'light' ? activateLightMode() : activateDarkMode()
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":-1,"unescape":true,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '汇编',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/CSS/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-footer-beautify@1.0.0/lib/runtime.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background:url(https://vacancy-h.github.io/image/school_theme.jpg)"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/Kurisu.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope-open"></i><span> 留言板</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/image/screenshot01.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">Steins;Gate</span></a><a class="nav-page-title" href="/"><span class="site-name">汇编</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/comments/"><i class="fa-fw fas fa-envelope-open"></i><span> 留言板</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">汇编</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-04-11T02:54:37.000Z" title="发表于 2025-04-11 10:54:37">2025-04-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-04-20T13:01:51.341Z" title="更新于 2025-04-20 21:01:51">2025-04-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E6%B1%87%E7%BC%96/">汇编</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><div id="post-outdate-notice" data="{&quot;limitDay&quot;:365,&quot;messagePrev&quot;:&quot;It has been&quot;,&quot;messageNext&quot;:&quot;days since the last update, the content of the article may be outdated.&quot;,&quot;postUpdate&quot;:&quot;2025-04-20 21:01:51&quot;}" hidden></div><h1><center> <em><strong>汇编学习</strong></em> </center></h1>
+<blockquote>
+<p><em><strong>声明：我所研究的汇编是win32位的MASM汇编，并不是传统的8086汇编！</strong></em></p>
+</blockquote>
+<h2 id="一、汇编的基本语法知识">一、汇编的基本语法知识</h2>
+<ol>
+<li>
+<p><strong>模式定义</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.386</span><br><span class="line">.model flat, stdcall</span><br><span class="line">option casemap:none</span><br></pre></td></tr></table></figure>
+<p>这些指令定义了程序使用的指令集、工作模式和格式，接下来我们来逐个介绍每一个语句是什么含义：</p>
+<ul>
+<li>
+<p><code>.386</code><br>
+（伪指令）告诉编译器在本程序中使用的指令集。<br>
+（若是要写驱动程序，定义<code>.386p</code>指在特权指令0级上运行）</p>
+</li>
+<li>
+<p><code>.model flat, stdcall</code><br>
+<strong>.model</strong>在低版本宏汇编中已经存在，用来定义程序工作模式<br>
+基本格式：<code>.model 内存模式, [语言模式][其他模式]</code><br>
+内存模式定义能够影响最后生成的可执行文件：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">内存模式</th>
+<th style="text-align:center">各种模式的介绍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>tiny</strong></td>
+<td style="text-align:center">建立 <strong>.com</strong>文件，所有 <strong>.code</strong>, <strong>.data</strong>, <strong>.stack</strong>全部在64KB的段内</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>small</strong></td>
+<td style="text-align:center">建立 <strong>.code</strong>, <strong>.data</strong>分别用一个64KB的段的 <strong>.exe</strong>文件</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>medium</strong></td>
+<td style="text-align:center"><strong>.code</strong>能有很多个64KB段，<strong>.data</strong>只有一个</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>compact</strong></td>
+<td style="text-align:center"><strong>.data</strong>能有很多个64KB段，<strong>.code</strong>只有一个</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>large</strong></td>
+<td style="text-align:center"><strong>.code</strong>和 <strong>.data</strong>都能有很多个64KB段</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>huge</strong></td>
+<td style="text-align:center">和large相同，<strong>.data</strong>中一个数组可以超过64KB</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>flat</strong></td>
+<td style="text-align:center"><strong>win32</strong>使用的模式，<strong>.code</strong>，<strong>.data</strong>共同使用一个4GB的段</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>win32</strong>只有<strong>flat</strong>模式！</p>
+</blockquote>
+<p><strong>.model flat</strong>，还需要指定语言模式，例子使用的是 <strong>stdcall</strong>，它指出了调用子程序或 <strong>win32 API</strong>时参数传递的次序和堆栈平衡的方法。</p>
+<p>除了 <strong>stdcall</strong> 以外还有 <strong>C, SysCall, BASIC, FORTRAIN, PASCALL</strong><br>
+高级语言都是通过堆栈来传递参数， <strong>win32 API</strong>调用使用的是 <strong>stdcall</strong>参数</p>
+<ol>
+<li><code>_stdcall调用</code><br>
+<strong>_stdcall</strong>时Pascal程序的缺省调用方式，参数采取从右至左的压栈方式，被调用的函数自身在返回前清空堆栈。 <strong>win32 API</strong>采取 <strong>_stdcall</strong>调用方式<br>
+<code>example:</code><br><br>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo separator="true">,</mo><mi>z</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(x, y, z)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span><span class="mclose">)</span></span></span></span> <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span>第一个入栈，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>其次，最后是<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>。 函数返回时自己清空堆栈。</li>
+<li><code>_cdecl调用</code><br>
+是 <strong>C/C++</strong> 的缺省调用方式，参数从右往左压入栈，内存栈由调用者维护，函数返回时不会自己清空堆栈，只能被 <strong>C/C++</strong> 调用</li>
+</ol>
+</li>
+<li>
+<p><code>option casemap:none</code><br>
+<strong>option:none</strong> 是告诉编译器，程序变量名和子程序变量名对大小敏感。</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">.386</span><br><span class="line">.model flat, stdcall</span><br><span class="line">option casemap:none</span><br><span class="line">&lt;一些include语句&gt;</span><br><span class="line">.data</span><br><span class="line">&lt;一些全局变量&gt;</span><br><span class="line">.data?</span><br><span class="line">&lt;一些未初始化的变量&gt;</span><br><span class="line">.code</span><br><span class="line">&lt;代码&gt;</span><br><span class="line">start:</span><br><span class="line">call main</span><br><span class="line">push 0</span><br><span class="line">call crt_exit</span><br><span class="line">add esp, 4 </span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="二、基本指令">二、基本指令</h2>
+<ol>
+<li><strong>数据传送指令</strong>
+<ul>
+<li><strong>mov</strong><br>
+<code>mov eax, 33221100H</code> 立即数寻址<br>
+<code>mov ebx, eax</code> 寄存器寻址<br>
+<code>mov ecx, ds:[405000H]</code> 存储器寻址 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.data</span><br><span class="line">var1 word 12, 34, 56, 78</span><br><span class="line"></span><br><span class="line">.code</span><br><span class="line">start:</span><br><span class="line">mov ax, (word ptr) var1       ;ax = 12</span><br><span class="line">mov bx, (word ptr) [var1 + 2] ;ax = 34</span><br><span class="line">end start      </span><br></pre></td></tr></table></figure>
+<strong>基本格式：</strong><br>
+<code>mov 目的操作数， 源操作数</code></li>
+<li><strong>movzx</strong><br>
+全零扩展并传送<br>
+<code>movzx reg32, reg/mem8</code><br>
+<code>movzx reg32, reg/mem16</code><br>
+<code>movzx reg16, reg/mem8</code></li>
+<li><strong>movsz</strong><br>
+符号扩展并传送<br>
+<code>movsx reg32, reg/mem8</code><br>
+<code>movsx reg32, reg/mem16</code><br>
+<code>movsx reg16, reg/mem8</code></li>
+<li><strong>xchg</strong><br>
+<code>xchg reg, reg/mem</code><br>
+<code>xchg reg / mem, reg</code></li>
+<li><strong>lea</strong></li>
+</ul>
+</li>
+<li><strong>算术运算指令</strong>
+<ol>
+<li><strong>加法和减法</strong></li>
+</ol>
+<ul>
+<li><strong>inc/dec</strong><br>
+<code>inc /dec dst</code>操作数+/-1</li>
+<li><strong>add/sub</strong><br>
+<code>add / sub</code> dst, src</li>
+<li><strong>neg</strong><br>
+求补 <code>neg dst</code></li>
+<li><strong>cmp</strong><br>
+<code>cmp dst, src</code></li>
+<li><strong>adc/sbb</strong><br>
+带进位加法和带错位减法</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>加减法影响的标志位：</p>
+</blockquote>
+<ul>
+<li>cf置1：无符号整数溢出</li>
+<li>of置1：有符号整数溢出</li>
+<li>zf置1：意味着操作结果为0</li>
+<li>sf置1：意味着操作产生的结果为负数</li>
+</ul>
+<ol start="2">
+<li><strong>乘法与除法</strong></li>
+</ol>
+<ul>
+<li><strong>mul</strong><br>
+<code>mul reg/mem8</code><br>
+<code>mul reg/mem16</code><br>
+<code>mul reg/mem32</code></li>
+<li><strong>imul</strong><br>
+执行有符号整数乘法</li>
+<li><strong>div</strong><br>
+无符号除法指令</li>
+<li><strong>idiv</strong><br>
+有符号除法指令</li>
+</ul>
+<ol start="3">
+<li><strong>转移指令</strong>
+<ol>
+<li><strong>地址转移指令</strong>
+<ul>
+<li><strong>and, er, xor, not, test, cmp</strong></li>
+</ul>
+</li>
+<li><strong>跳转指令</strong>
+<ul>
+<li><strong>jmp指令</strong>
+<ul>
+<li>jc 进位跳转     cf = 1</li>
+<li>jnc 无进位跳转  cf = 0</li>
+<li>jz 为零跳转     zf = 1</li>
+<li>jnz 非零跳转    zf = 0</li>
+<li>js 有符号跳转   sf = 1</li>
+<li>jns 无符号跳转  sf = 0</li>
+<li>jp 偶校验跳转   pf = 1</li>
+<li>jnp 奇校验跳转  pf = 0</li>
+<li>je 相等则跳转</li>
+<li>jl 小于则跳转</li>
+<li>jg 大于则跳转</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">top:</span><br><span class="line">   ...</span><br><span class="line">   jmp top</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>布尔指令</strong>
+<ul>
+<li><strong>and, or, xor, not</strong></li>
+<li><strong>test：一种非破坏性的and操作</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="三、过程（函数）">三、过程（函数）</h2>
+<ol>
+<li><strong>汇编语言堆栈</strong>
+<ul>
+<li>栈寄存器：esp(栈指针), ebp</li>
+<li>栈操作：push, pop</li>
+</ul>
+</li>
+<li><strong>汇编语言过程</strong>
+<ul>
+<li>过程定义：proc / endp</li>
+<li>过程调用与返回：call, ret</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">过程名 proc [距离][语言类型][可视区域][USES 寄存器列表][,参数：类型]...[VARARG]</span><br><span class="line">[local 局部变量列表]</span><br><span class="line">   push esp</span><br><span class="line">   mov ebp, esp</span><br><span class="line">   sub esp, num</span><br><span class="line"></span><br><span class="line">   指令序列    ;过程体</span><br><span class="line"></span><br><span class="line">   mov esp, ebp</span><br><span class="line">   pop ebp</span><br><span class="line">   ret</span><br><span class="line">过程名 endp</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">保存的寄存器 &lt;- ESP</td>
+</tr>
+<tr>
+<td style="text-align:center">局部变量n</td>
+</tr>
+<tr>
+<td style="text-align:center">…</td>
+</tr>
+<tr>
+<td style="text-align:center">局部变量1 &lt;- -4</td>
+</tr>
+<tr>
+<td style="text-align:center">被保存的ebp &lt;- EBP</td>
+</tr>
+<tr>
+<td style="text-align:center">返回地址 &lt;- +8</td>
+</tr>
+<tr>
+<td style="text-align:center">参数1 &lt;- +0ch</td>
+</tr>
+<tr>
+<td style="text-align:center">…</td>
+</tr>
+<tr>
+<td style="text-align:center">参数n-1</td>
+</tr>
+<tr>
+<td style="text-align:center">参数n</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>参数 [ebp+n]</li>
+<li>局部变量 [ebp-n]</li>
+</ul>
+</li>
+</ol>
+<h2 id="四、数组">四、数组</h2>
+<ol>
+<li><strong>基址-变址：<strong>将</strong>两个寄存器</strong>（称为基址和变址）相加，生成一个偏移地址<br>
+[base + index]</li>
+<li><strong>基址-变址-偏移量</strong><br>
+[base + index + displacement]<br>
+displacement[base + index]</li>
+</ol>
+<h2 id="五、Win32汇编">五、Win32汇编</h2>
+<ol>
+<li><strong>MS-Windows 汇编编程</strong>
+<ul>
+<li>动态链接库（DLL）：系统功能模块</li>
+<li>API：应用程序编程接口，系统以API的形式提供功能调用</li>
+<li>调用约定：WINAPI， 即__stdcall</li>
+<li>Win32 API函数不保存 EAX, EBX, ECX 和 EDX</li>
+</ul>
+</li>
+<li><strong>Win32 常用库</strong>
+<ul>
+<li>kernel32: 操作系统内核相关，如文件，内存，进程</li>
+<li>user32: 用户界面相关，如窗口，消息等</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>x64汇编编程</p>
+</blockquote>
+<ul>
+<li>64 位 MASM 不支持 .model 伪指令</li>
+<li>64 位 MASM 中，使用 PROTO 关键字的语句不带参数</li>
+<li>64 位 MASM 不支持 INVOKE 伪指令</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://VacanCy-H.github.io.git">Kurisu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://vacancy-h.github.io.git/2025/04/11/Tool-2025-04-11-%E6%B1%87%E7%BC%96-md/">https://vacancy-h.github.io.git/2025/04/11/Tool-2025-04-11-%E6%B1%87%E7%BC%96-md/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://VacanCy-H.github.io.git" target="_blank">Steins;Gate</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a><a class="post-meta__tags" href="/tags/%E6%B1%87%E7%BC%96/">汇编</a></div><div class="post-share"><div class="social-share" data-image="/image/screenshot01.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/image/wechat.png" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/wechat.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/image/alipay.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/04/10/AlgorithmAndDataStructure-2025-04-10-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" title="动态规划"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/photo04.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">动态规划</div></div><div class="info-2"><div class="info-item-1"> 动态规划   动态规划是一个很大的板块，分为很多的方面给，这篇文章只是给出一个最基本的概念，后续动态规划的各种类型会逐渐更新。  一、介绍 动态规划其实就是一种把大问题分解成小的并且有关联的子问题，子问题之间有重叠的部分，可以通过子问题的答案推断出后续问题的答案。 动态规划还可以是当成一种缓存表，把递归调用得到的结果用一张dpdpdp表存起来，以后遇到相似的情况直接从缓存中找答案，用空间换时间。 然后是严格位置依赖的动态规划，这种方式需要找到状态定义和状态转移方程，而往往找出最优的状态定义和转移方程是困难的，需要花大量的时间积累经验以及依赖一点灵感。 二、分类 动态规划可以分为一维动态规划，二维动态规划，01背包，完全背包，分组背包，多重背包和混合背包，区间dp，状压dp等等 </div></div></div></a><a class="pagination-related" href="/2025/04/11/Cryptography-2025-04-11-RSA/" title="RSA加密算法"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/screenshot04.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">RSA加密算法</div></div><div class="info-2"><div class="info-item-1">一、RSA加密解密过程  加密过程 RSA的加密思路基于大质数分解，  </div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/04/11/Cryptography-2025-04-11-RSA/" title="RSA加密算法"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/screenshot04.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-11</div><div class="info-item-2">RSA加密算法</div></div><div class="info-2"><div class="info-item-1">一、RSA加密解密过程  加密过程 RSA的加密思路基于大质数分解，  </div></div></div></a><a class="pagination-related" href="/2025/05/24/Cryptography-2025-05-24-DES-and-AES/" title="DES and AES"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/screenshot09.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-24</div><div class="info-item-2">DES and AES</div></div><div class="info-2"><div class="info-item-1">DES DES的总体结构和局部设计  总体结构   典型结构是Feistel迭代结构    初始置换(IP - Initial Permutation)   IP打乱输入的比特序列，IP−1(IP(x))=xIP^{-1}(IP(x)) = xIP−1(IP(x))=x IP是公开的，不影响DES的安全性。    16轮Feistel迭代  R16=R15L16=L15⊕f(R15,K16)\begin{align*}   R_{16} &amp;= R_{15} \\   L_{16} &amp;= L_{15} \oplus f(R_{15},...</div></div></div></a><a class="pagination-related" href="/2025/05/25/Cryptography-2025-05-25-Hash%E5%87%BD%E6%95%B0/" title="Hash函数"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/photo01.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-25</div><div class="info-item-2">Hash函数</div></div><div class="info-2"><div class="info-item-1">Hash函数基本信息  Hash函数将任意长度的输入变换为固定长度的输出。 计算H(x)H(x)H(x)容易 单向性。抗原像性(Pre-image-Resistance)，对任意给定的散列值h，找到满足H(x)=hH(x) = hH(x)=h的消息在计算上是不可行的(intractable)。 抗弱碰撞性。又称抗第二原像性(Second Pre-image Resistance)，对任何给定的消息，找到满足 x′≠xx&#x27; \neq xx′=x，且H(x′)≠H(x)H(x&#x27;) \neq H(x)H(x′)=H(x)的消息x′x&#x27;x′在计算上是不可行的。 抗强碰撞性。找到任何满足H(x)≠H(x′)H(x) \neq H(x&#x27;)H(x)=H(x′)的偶对(x,x′)(x, x&#x27;)(x,x′)在计算上是不可行的。  Hash 函数的一般模型   设f:{0,1}m+t→{0,1}m,t&gt;=1f:\{0, 1\}^{m+t} \rightarrow \{0, 1\}^{m}, t &gt;=...</div></div></div></a><a class="pagination-related" href="/2025/04/11/OperationSystem-2025-04-11-Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="Linux操作系统"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/photo06.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-11</div><div class="info-item-2">Linux操作系统</div></div><div class="info-2"><div class="info-item-1"> Linux  一、基本指令   pwd hcy@hcy-virtual-machine:~$ pwd 这行代码的含义是查询当前文件夹下的路径 eg： 输出：/home/hcy   cd hcy@hcy-virtual-machine:~$ cd  cd ..  意思是回退到上一个文件夹目录 cd xxx 意思是转移到该盘符    vim  注意！使用vim前需要下载！  hcy@hcy-virtual-machine:~$ vim xxx.xxx 这段代码的含义是利用vim生成一个空的文件，文件名和后缀可以自己控制   mkdir hcy@hcy-virtual-machine:~$ mkdir xxx 这段代码的含义是在当前目录下生成一个文件夹   rmdir hcy@hcy-virtual-machine:~$ rmdir xxx 删除当前目录下的文件夹   rm hcy@hcy-virtual-machine:~$ rm xxx.xxx 删除某个文件   mv hcy@hcy-virtual-machine:~$ mv oldfile...</div></div></div></a><a class="pagination-related" href="/2025/05/18/Cryptography-2025-05-18-%E5%AF%86%E7%A0%81%E5%AD%A6/" title="密码学"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/budalagong.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-18</div><div class="info-item-2">密码学</div></div><div class="info-2"><div class="info-item-1">一、密码学概述 密码学的基本知识 基本信息  密码学的基本目的是使得两个在不安全信道中通信的人，Alice和Bob以一种使他们的敌手Eve不能明白和理解通信内容的方式进行通信。 Alice发送给Bob的信息，称为明文(plaintext)。Alice使用预先商量好的密钥(key)对明文进行加密，加密过的明文称为密文(ciphertext)。 加密通信基本过程，加密算法EEE，解密算法DDD，明文MMM，密文CCC，要传输明文MMM   C=E(M)C = E(M)C=E(M)     D(C)=MD(C) = MD(C)=M     D(E(M))=MD(E(M)) = MD(E(M))=M    密码学的基本概念  明文消息(Plaintext)：未加密的原消息 密文消息(Ciphertext)：加密后的消息 密钥(Key)：加解密过程中只有发送者和接收者知道的关键信息，分为加密密钥(Encryption Key)和解密密钥(Decryption...</div></div></div></a><a class="pagination-related" href="/2025/04/17/OperationSystem-2025-04-17-%E9%A1%B5%E5%BC%8F%E5%AD%98%E5%82%A8/" title="页式存储"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/photo09.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-04-17</div><div class="info-item-2">页式存储</div></div><div class="info-2"><div class="info-item-1"> 页式存储   我们知道操作系统页式存储有三种调度方式，下面讲研究一下这三种调度算法  一、FIFO(First in First out)   介绍 先进先出的进程调度算法，看起来是最合理最公平的，但是其实并不是最高效的。如果有进程需要被频繁调用，那么一直进一直出的开销是很大的，不过我们可以写代码来实现一下这个算法   算法实现 12345678910111213141516171819double fifo(const std::vector&lt;int&gt;&amp; page_stream, int frames) &#123;    std::unordered_set&lt;int&gt; memory;    std::queue&lt;int&gt; fifo_queue;    int page_faults = 0;       for (int page : page_stream) &#123;        if (memory.find(page) == memory.end()) &#123;            page_faults++;...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/Kurisu.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Kurisu</div><div class="author-info-description">学而不思则罔，思而不学则殆</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">19</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/VacanCy-H"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Vacancy-H" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:3325771476@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎参观！会随缘更新自己的学习生活quq。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"> 汇编学习 </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%B1%87%E7%BC%96%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E7%9F%A5%E8%AF%86"><span class="toc-number">1.1.</span> <span class="toc-text">一、汇编的基本语法知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%9F%BA%E6%9C%AC%E6%8C%87%E4%BB%A4"><span class="toc-number">1.2.</span> <span class="toc-text">二、基本指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E8%BF%87%E7%A8%8B%EF%BC%88%E5%87%BD%E6%95%B0%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">三、过程（函数）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%95%B0%E7%BB%84"><span class="toc-number">1.4.</span> <span class="toc-text">四、数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81Win32%E6%B1%87%E7%BC%96"><span class="toc-number">1.5.</span> <span class="toc-text">五、Win32汇编</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/05/25/Cryptography-2025-05-25-Hash%E5%87%BD%E6%95%B0/" title="Hash函数"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/photo01.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hash函数"/></a><div class="content"><a class="title" href="/2025/05/25/Cryptography-2025-05-25-Hash%E5%87%BD%E6%95%B0/" title="Hash函数">Hash函数</a><time datetime="2025-05-25T05:18:17.000Z" title="发表于 2025-05-25 13:18:17">2025-05-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/24/Cryptography-2025-05-24-DES-and-AES/" title="DES and AES"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/screenshot09.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="DES and AES"/></a><div class="content"><a class="title" href="/2025/05/24/Cryptography-2025-05-24-DES-and-AES/" title="DES and AES">DES and AES</a><time datetime="2025-05-24T02:39:45.000Z" title="发表于 2025-05-24 10:39:45">2025-05-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/22/Tool-2025-05-22-Vim/" title="Vim"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/photo07.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vim"/></a><div class="content"><a class="title" href="/2025/05/22/Tool-2025-05-22-Vim/" title="Vim">Vim</a><time datetime="2025-05-22T04:40:15.000Z" title="发表于 2025-05-22 12:40:15">2025-05-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/19/Tool-2025-05-19-Makefile/" title="Makefile"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/photo06.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Makefile"/></a><div class="content"><a class="title" href="/2025/05/19/Tool-2025-05-19-Makefile/" title="Makefile">Makefile</a><time datetime="2025-05-19T13:58:54.000Z" title="发表于 2025-05-19 21:58:54">2025-05-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/05/19/Tool-2025-05-19-LaTeX%E5%B8%B8%E8%A7%81%E5%85%AC%E5%BC%8F/" title="LaTeX常见公式"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/screenshot02.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LaTeX常见公式"/></a><div class="content"><a class="title" href="/2025/05/19/Tool-2025-05-19-LaTeX%E5%B8%B8%E8%A7%81%E5%85%AC%E5%BC%8F/" title="LaTeX常见公式">LaTeX常见公式</a><time datetime="2025-05-18T17:25:43.000Z" title="发表于 2025-05-19 01:25:43">2025-05-19</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2025 By Kurisu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"></div><script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false }
+      ]
+    });
+  });
+</script>
+<canvas id="universe"></canvas><script defer src="/js/universe.js"></script><script defer src="/js/light.js"></script><script defer src="/js/runtimes.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_footer_beautify_injector_config(){
+    var parent_div_git = document.getElementById('footer-wrap');
+    var item_html = '<div id="workboard"></div>';
+    console.log('已挂载butterfly_footer_beautify')
+    parent_div_git.insertAdjacentHTML("beforeend",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_footer_beautify_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_footer_beautify_injector_config();
+  }
+  </script><script async src="/js/runtime.js"></script><!-- hexo injector body_end end --></body></html>
